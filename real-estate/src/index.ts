@@ -2,7 +2,7 @@ import {
   ExtensionContext,
   ExtensionFactory,
   Extension,
-} from "../../../packages/extension-api/src/index";
+} from "@unerp/extension-api";
 
 const factory: ExtensionFactory = (context: ExtensionContext): Extension => {
   return {

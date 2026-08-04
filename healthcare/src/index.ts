@@ -2,7 +2,7 @@ import {
   ExtensionContext,
   ExtensionFactory,
   Extension,
-} from "../../../packages/extension-api/src/index";
+} from "@unerp/extension-api";
 
 // Healthcare Management Extension
 // Migrated from unierp-app-healthcare satellite repository

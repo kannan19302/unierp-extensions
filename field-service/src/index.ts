@@ -2,7 +2,7 @@ import {
   ExtensionContext,
   ExtensionFactory,
   Extension,
-} from "../../../packages/extension-api/src/index";
+} from "@unerp/extension-api";
 
 // Field Service Management Extension
 // Migrated from unierp-app-field-service satellite repository

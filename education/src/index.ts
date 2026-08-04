@@ -2,7 +2,7 @@ import {
   ExtensionContext,
   ExtensionFactory,
   Extension,
-} from "../../../packages/extension-api/src/index";
+} from "@unerp/extension-api";
 
 // Education Management Extension
 // Migrated from unierp-app-education satellite repository
