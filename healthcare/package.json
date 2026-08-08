@@ -6,6 +6,6 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@unerp/extension-api": "workspace:*"
+    "@unerp/extension-api": "0.1.0"
   }
 }
