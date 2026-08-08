@@ -1,7 +1,7 @@
 # Contributing to unierp-extensions
 
 This repository is **L6 — Extensions** in the UniERP layered architecture.
-It may depend on **`@unerp/extension-api` **only****, and nothing else.
+It may depend on **`@kannan19302/extension-api` **only****, and nothing else.
 
 ## The rule that matters most here
 

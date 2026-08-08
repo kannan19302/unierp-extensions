@@ -2,11 +2,11 @@ import {
   ExtensionContext,
   ExtensionFactory,
   Extension,
-} from "@unerp/extension-api";
+} from "@kannan19302/extension-api";
 
 // Field Service Management Extension
 // Migrated from unierp-app-field-service satellite repository
-// Depends only on @unerp/extension-api — no privileged monolith access
+// Depends only on @kannan19302/extension-api — no privileged monolith access
 
 const factory: ExtensionFactory = (_context: ExtensionContext): Extension => {
   return {

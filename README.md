@@ -4,7 +4,7 @@
 > [Repository map](https://github.com/kannan19302/UniERP#repository-map) · [Architecture](https://github.com/kannan19302/UniERP#how-the-pieces-fit-at-runtime) · [Contributing](https://github.com/kannan19302/UniERP/blob/main/CONTRIBUTING.md) · [Security](https://github.com/kannan19302/UniERP/blob/main/SECURITY.md)
 
 **Layer L6 — Extensions** of the [UniERP](https://github.com/kannan19302/unierp-platform) platform.
-Depends on: `@unerp/extension-api` **only**.
+Depends on: `@kannan19302/extension-api` **only**.
 
 ## What this is
 
