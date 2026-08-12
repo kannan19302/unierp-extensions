@@ -4,7 +4,11 @@
   "consumer": "@kannan19302/ext-field-service",
   "providers": {
     "@kannan19302/extension-api": {
-      "symbols": ["Extension", "ExtensionContext", "ExtensionFactory"],
+      "symbols": [
+        "Extension",
+        "ExtensionContext",
+        "ExtensionFactory"
+      ],
       "namespaceImports": 0,
       "consumingFiles": 1
     }
