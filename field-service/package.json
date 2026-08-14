@@ -1,11 +1,26 @@
 {
-  "name": "field-service-extension",
+  "name": "@kannan19302/ext-field-service",
   "version": "1.0.0",
+  "description": "Field Service Management extension (L6). Ported from the archived unierp-app-fieldservice repository against the public extension API.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
-    "@kannan19302/extension-api": "0.1.0"
-  }
+    "@kannan19302/extension-api": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "license": "AGPL-3.0"
 }

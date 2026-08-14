@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unierp.io/schemas/port-account.json",
+  "description": "E26 line-by-line accounting of the archived unierp-app-fieldservice repository. Every archived source file is disposed as PORTED (logic carried forward), REWRITTEN (re-expressed against the public extension API), or DROPPED (with a reason). Enforced by scripts/check-e26-port.mjs.",
+  "vertical": "field_service",
+  "archivedRepo": "unierp-app-fieldservice",
+  "archivedTotalLines": 526,
+  "destination": "unierp-extensions/field-service",
+  "entries": [
+    { "file": "prisma/schema.prisma", "lines": 79, "disposition": "REWRITTEN", "where": "src/schema.ts", "reason": "Prisma models re-expressed as declared extension schema entities (ext_field_service_<entity> with tenant_id+RLS); field-service data is service-owned with core references by ID only." },
+    { "file": "prisma.config.ts", "lines": 10, "disposition": "DROPPED", "where": null, "reason": "Prisma CLI config; the extension has no Prisma data layer." },
+    { "file": "src/app.module.ts", "lines": 14, "disposition": "DROPPED", "where": null, "reason": "NestJS bootstrap; the platform is the host for extensions." },
+    { "file": "src/dispatch.controller.ts", "lines": 39, "disposition": "REWRITTEN", "where": "src/routes.ts (/dispatch/*)", "reason": "NestJS controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/dispatch.service.ts", "lines": 110, "disposition": "PORTED", "where": "src/dispatch.ts", "reason": "Dispatch board, assignment, status transitions, SLA and PM look-ahead logic carried forward as pure functions." },
+    { "file": "src/events.controller.ts", "lines": 31, "disposition": "DROPPED", "where": null, "reason": "Core event fan-out was monolith infrastructure; extension events are a manifest scope, not a local HTTP endpoint." },
+    { "file": "src/field-service.controller.ts", "lines": 68, "disposition": "REWRITTEN", "where": "src/routes.ts (CRUD endpoints)", "reason": "NestJS CRUD controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/field-service.service.ts", "lines": 98, "disposition": "PORTED", "where": "src/crud.ts", "reason": "Ticket/dispatch/checklist/PM CRUD logic carried forward as pure functions over in-memory record sets." },
+    { "file": "src/health.controller.ts", "lines": 11, "disposition": "DROPPED", "where": null, "reason": "Platform owns liveness/health endpoints." },
+    { "file": "src/main.ts", "lines": 29, "disposition": "DROPPED", "where": null, "reason": "NestJS HTTP bootstrap; the platform loads extension factories." },
+    { "file": "src/prisma.ts", "lines": 6, "disposition": "DROPPED", "where": null, "reason": "Prisma client; extensions have no direct DB handle." },
+    { "file": "src/scope.guard.ts", "lines": 23, "disposition": "DROPPED", "where": null, "reason": "Authorization is enforced by the platform via manifest scope grants; the extension cannot self-authorize." },
+    { "file": "src/tenant.ts", "lines": 8, "disposition": "DROPPED", "where": null, "reason": "Tenant identity is provided by the platform context (ExtensionContext.tenantId)." }
+  ]
+}

@@ -7,10 +7,16 @@
       "symbols": [
         "Extension",
         "ExtensionContext",
-        "ExtensionFactory"
+        "ExtensionEntity",
+        "ExtensionFactory",
+        "ExtensionField",
+        "ExtensionManifestV1",
+        "ExtensionRequest",
+        "ExtensionResponse",
+        "ExtensionSchema"
       ],
       "namespaceImports": 0,
-      "consumingFiles": 1
+      "consumingFiles": 5
     }
   }
 }

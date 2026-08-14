@@ -1,0 +1,32 @@
+{
+  "$schema": "https://unierp.io/schemas/port-account.json",
+  "description": "E26 line-by-line accounting of the archived unierp-app-healthcare repository. Every archived source file is disposed as PORTED (logic carried forward), REWRITTEN (re-expressed against the public extension API), or DROPPED (with a reason). Enforced by scripts/check-e26-port.mjs.",
+  "vertical": "healthcare",
+  "archivedRepo": "unierp-app-healthcare",
+  "archivedTotalLines": 1765,
+  "destination": "unierp-extensions/healthcare",
+  "entries": [
+    { "file": "prisma/schema.prisma", "lines": 133, "disposition": "REWRITTEN", "where": "src/schema.ts", "reason": "Prisma models re-expressed as declared extension schema entities (provisioned as ext_healthcare_<entity> with tenant_id+RLS); money fields declared decimal." },
+    { "file": "prisma.config.ts", "lines": 10, "disposition": "DROPPED", "where": null, "reason": "Prisma CLI config; the extension has no Prisma data layer." },
+    { "file": "scripts/build-bundle.ts", "lines": 33, "disposition": "DROPPED", "where": null, "reason": "Bundle/signing tooling superseded by the platform's signed-bundle pipeline; the repo builds with tsc and the platform signs at install." },
+    { "file": "scripts/healthcare-bundles.ts", "lines": 482, "disposition": "DROPPED", "where": null, "reason": "One-off marketplace install-bundle generator; install is now a platform operation over the declared manifest (src/manifest.ts)." },
+    { "file": "scripts/manifest-types.ts", "lines": 209, "disposition": "REWRITTEN", "where": "src/manifest.ts", "reason": "Manifest shape now comes from the published ExtensionManifestV1 type; the local duplicate is removed." },
+    { "file": "src/app.module.ts", "lines": 16, "disposition": "DROPPED", "where": null, "reason": "NestJS bootstrap; the platform is the host for extensions." },
+    { "file": "src/clinical.controller.ts", "lines": 33, "disposition": "REWRITTEN", "where": "src/routes.ts (/clinical/*)", "reason": "NestJS controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/clinical.service.ts", "lines": 100, "disposition": "PORTED", "where": "src/clinical.ts", "reason": "Domain logic carried forward as pure functions over in-memory record sets." },
+    { "file": "src/core-client.ts", "lines": 15, "disposition": "DROPPED", "where": null, "reason": "Direct core data access; extensions receive their declared record sets from the platform." },
+    { "file": "src/events.controller.ts", "lines": 31, "disposition": "DROPPED", "where": null, "reason": "Core event fan-out was monolith infrastructure; extension events are a manifest scope, not a local HTTP endpoint." },
+    { "file": "src/health.controller.ts", "lines": 11, "disposition": "DROPPED", "where": null, "reason": "Platform owns liveness/health endpoints." },
+    { "file": "src/healthcare-smart.controller.ts", "lines": 45, "disposition": "REWRITTEN", "where": "src/routes.ts (smart endpoints)", "reason": "NestJS controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/healthcare-smart.service.ts", "lines": 166, "disposition": "PORTED", "where": "src/smart.ts", "reason": "Eligibility, claim scrub, drug interactions, CDS, quality measures, FHIR projections carried forward as pure functions." },
+    { "file": "src/healthcare.controller.ts", "lines": 98, "disposition": "REWRITTEN", "where": "src/routes.ts (CRUD endpoints)", "reason": "NestJS CRUD controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/healthcare.service.ts", "lines": 182, "disposition": "PORTED", "where": "src/crud.ts", "reason": "CRUD domain logic carried forward as pure functions over in-memory record sets." },
+    { "file": "src/main.ts", "lines": 32, "disposition": "DROPPED", "where": null, "reason": "NestJS HTTP bootstrap; the platform loads extension factories." },
+    { "file": "src/pagination.util.ts", "lines": 67, "disposition": "PORTED", "where": "src/pagination.ts", "reason": "Pagination helpers carried forward unchanged." },
+    { "file": "src/prisma.ts", "lines": 4, "disposition": "DROPPED", "where": null, "reason": "Prisma client; extensions have no direct DB handle." },
+    { "file": "src/reference-data.ts", "lines": 52, "disposition": "PORTED", "where": "src/reference-data.ts", "reason": "Reference datasets (payers, drug interactions, ICD-10, CPT, LOINC, vaccines) carried forward unchanged." },
+    { "file": "src/scope.guard.ts", "lines": 23, "disposition": "DROPPED", "where": null, "reason": "Authorization is enforced by the platform via manifest scope grants; the extension cannot self-authorize." },
+    { "file": "src/tenant.ts", "lines": 8, "disposition": "DROPPED", "where": null, "reason": "Tenant identity is provided by the platform context (ExtensionContext.tenantId)." },
+    { "file": "src/token-store.ts", "lines": 15, "disposition": "DROPPED", "where": null, "reason": "Tenant-context token handling owned by the platform sandbox boundary." }
+  ]
+}

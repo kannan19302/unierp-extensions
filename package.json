@@ -1,0 +1,20 @@
+{
+  "name": "unierp-extensions",
+  "private": true,
+  "version": "1.0.0",
+  "description": "UniERP extension layer (L6). Each vertical is an independently installable extension depending only on the published @kannan19302/extension-api surface.",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "node scripts/check-layer.mjs && node scripts/check-e26-port.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "AGPL-3.0"
+}

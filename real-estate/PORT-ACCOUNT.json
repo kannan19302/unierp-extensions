@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unierp.io/schemas/port-account.json",
+  "description": "E26 line-by-line accounting of the archived unierp-app-realestate repository. Every archived source file is disposed as PORTED (logic carried forward), REWRITTEN (re-expressed against the public extension API), or DROPPED (with a reason). Enforced by scripts/check-e26-port.mjs.",
+  "vertical": "real_estate",
+  "archivedRepo": "unierp-app-realestate",
+  "archivedTotalLines": 513,
+  "destination": "unierp-extensions/real-estate",
+  "entries": [
+    { "file": "prisma/schema.prisma", "lines": 82, "disposition": "REWRITTEN", "where": "src/schema.ts", "reason": "Prisma models re-expressed as declared extension schema entities (ext_real_estate_<entity> with tenant_id+RLS); all money fields (rent, deposit, cost, commission) declared decimal." },
+    { "file": "prisma.config.ts", "lines": 10, "disposition": "DROPPED", "where": null, "reason": "Prisma CLI config; the extension has no Prisma data layer." },
+    { "file": "src/app.module.ts", "lines": 14, "disposition": "DROPPED", "where": null, "reason": "NestJS bootstrap; the platform is the host for extensions." },
+    { "file": "src/events.controller.ts", "lines": 31, "disposition": "DROPPED", "where": null, "reason": "Core event fan-out was monolith infrastructure; extension events are a manifest scope, not a local HTTP endpoint." },
+    { "file": "src/health.controller.ts", "lines": 11, "disposition": "DROPPED", "where": null, "reason": "Platform owns liveness/health endpoints." },
+    { "file": "src/lease-accounting.controller.ts", "lines": 27, "disposition": "REWRITTEN", "where": "src/routes.ts (/leasing/*)", "reason": "NestJS controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/lease-accounting.service.ts", "lines": 115, "disposition": "PORTED", "where": "src/lease-accounting.ts", "reason": "ASC-842 schedule (PV, interest, liability/ROU amortization), classification, portfolio summary, rent roll and expiring leases carried forward as pure functions; money arithmetic rounds to cents." },
+    { "file": "src/main.ts", "lines": 29, "disposition": "DROPPED", "where": null, "reason": "NestJS HTTP bootstrap; the platform loads extension factories." },
+    { "file": "src/prisma.ts", "lines": 4, "disposition": "DROPPED", "where": null, "reason": "Prisma client; extensions have no direct DB handle." },
+    { "file": "src/real-estate.controller.ts", "lines": 55, "disposition": "REWRITTEN", "where": "src/routes.ts (CRUD endpoints)", "reason": "NestJS CRUD controller endpoints re-expressed as customRoutes handlers." },
+    { "file": "src/real-estate.service.ts", "lines": 104, "disposition": "PORTED", "where": "src/crud.ts", "reason": "Property/lease/maintenance/commission CRUD logic carried forward as pure functions over in-memory record sets." },
+    { "file": "src/scope.guard.ts", "lines": 23, "disposition": "DROPPED", "where": null, "reason": "Authorization is enforced by the platform via manifest scope grants; the extension cannot self-authorize." },
+    { "file": "src/tenant.ts", "lines": 8, "disposition": "DROPPED", "where": null, "reason": "Tenant identity is provided by the platform context (ExtensionContext.tenantId)." }
+  ]
+}
